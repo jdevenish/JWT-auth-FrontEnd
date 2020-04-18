@@ -14,9 +14,9 @@ function Main() {
     return (
         <Switch>
             <Route exact path="/" component={Home} />
-            <Route path="/target-companies-and-applications" component={WithAuth(TargetCompanies)} />
+            <Route path="/target-companies-and-applications" component={valid ? TargetCompanies : Home} />
             <Route path="/job-search-materials" component={valid ? JobSearchMaterials : Home} />
-            <Route path="/networking-contacts" component={WithAuth(NetworkingContacts)} />
+            <Route path="/networking-contacts" component={valid ? NetworkingContacts : Home} />
             <Route path="/resources" component={Resources} />
             <Redirect to="/" />
         </Switch>

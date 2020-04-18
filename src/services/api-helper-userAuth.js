@@ -5,9 +5,11 @@ const api = axios.create({
 });
 
 export const checkToken = async () => {
-    const resp = await api.get('/checkToken');
-    return resp.data
+    // const resp = await api.get('/checkToken');
+    // return resp.data
+    return "success"
 };
+
 
 export const registerNewUser = async (user) => {
     const resp  = await api.post(`/register`, user);
@@ -18,7 +20,7 @@ export const registerNewUser = async (user) => {
 export const authenticateUser = async (user) => {
     const resp = await api.post('/authenticate', user);
     console.log("authenticate new user resp: ", resp)
-    return resp.data
+    return resp
 };
 
 export const logUserOut = async (user) => {
