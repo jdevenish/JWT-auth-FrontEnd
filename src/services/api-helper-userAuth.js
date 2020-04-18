@@ -18,9 +18,13 @@ export const registerNewUser = async (user) => {
 };
 
 export const authenticateUser = async (user) => {
-    const resp = await api.post('/authenticate', user);
-    console.log("authenticate new user resp: ", resp.headers)
-    return resp.data
+    // const resp = await api.post('/authenticate', user);
+    // console.log("authenticate new user resp: ", resp.headers)
+    // return resp.data
+    api.post('/authenticate', user).then((resp) => {
+        console.log(resp.headers)
+        return resp.data
+    });
 };
 
 export const logUserOut = async (user) => {
