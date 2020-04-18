@@ -1,7 +1,17 @@
 import React, { useEffect } from 'react';
-import { checkToken, registerNewUser, authenticateUser, logUserOut } from '../services/api-helper-userAuth'
+import { checkToken } from '../services/api-helper-userAuth'
+
 
 function JobSearchMaterials() {
+
+    useEffect(() => {
+        const makeSectorApiCall = async () => {
+            const json = await checkToken();
+            console.log("JobSearchMaterials: checkToken results = ", json)
+        };
+        makeSectorApiCall()
+
+    }, []);
 
 
     return (
