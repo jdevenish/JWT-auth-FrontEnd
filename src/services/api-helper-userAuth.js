@@ -17,7 +17,7 @@ export const registerNewUser = async (user) => {
 };
 
 export const authenticateUser = async (user) => {
-    const resp = await api.post('/authenticate', user);
+    const resp = await api.post('/authenticate', user, {withCredentials: true});
     return resp.data
 };
 
