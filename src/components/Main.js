@@ -1,22 +1,23 @@
-import React, { useEffect } from 'react';
+import React, {useContext, useEffect} from 'react';
 import { Route, Switch, Redirect} from 'react-router-dom';
+import { TrackerContext } from '../App'
 import Home from "./Home"
 import TargetCompanies from "./TargetCompanies"
 import JobSearchMaterials from "./JobSearchMaterials"
 import NetworkingContacts from "./NetworkingContacts"
 import Resources from "./Resources";
-import WithAuth from "../services/withAuth"
-import { checkToken } from '../services/api-helper-userAuth'
+import AccessDenied from "./Auth/AccessDenied";
 
 
 function Main() {
-    let valid = true;
+    const sharedStates = useContext(TrackerContext);
+
     return (
         <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/target-companies-and-applications" component={valid ? TargetCompanies : Home} />
-            <Route path="/job-search-materials" component={valid ? JobSearchMaterials : Home} />
-            <Route path="/networking-contacts" component={valid ? NetworkingContacts : Home} />
+            <Route exact path="/" component={sharedStates.loggedIn ? Resources : Home} />
+            <Route path="/target-companies-and-applications" component={sharedStates.loggedIn ? TargetCompanies : AccessDenied} />
+            <Route path="/job-search-materials" component={sharedStates.loggedIn ? JobSearchMaterials : AccessDenied} />
+            <Route path="/networking-contacts" component={sharedStates.loggedIn ? NetworkingContacts : AccessDenied} />
             <Route path="/resources" component={Resources} />
             <Redirect to="/" />
         </Switch>

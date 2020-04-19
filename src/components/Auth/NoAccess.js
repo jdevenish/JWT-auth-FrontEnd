@@ -3,7 +3,7 @@ import { TrackerContext } from '../../App'
 import CreateAccount from "./CreateAccount"
 import LogIn from "./LogIn"
 
-function Account() {
+function NoAccess() {
     const sharedStates = useContext(TrackerContext);
     const [userCreds, setUserCreds] = useState({
         email: "",
@@ -23,17 +23,10 @@ function Account() {
     };
 
     return (
-        <>
-            {sharedStates.createModal ? <CreateAccount
-                                            handleUserNameChange={handleUserNameChange}
-                                            handlePasswordChange={handlePasswordChange}
-                                            userCreds={userCreds}/>
-                                       : <LogIn
-                                            handleUserNameChange={handleUserNameChange}
-                                            handlePasswordChange={handlePasswordChange}
-                                            userCreds={userCreds}/>}
-        </>
+        <div>
+            <h1>No</h1>
+        </div>
     );
 }
 
-export default Account;
+export default NoAccess;

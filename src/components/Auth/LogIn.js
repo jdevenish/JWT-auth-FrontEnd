@@ -4,31 +4,21 @@ import { authenticateUser } from '../../services/api-helper-userAuth'
 import { TrackerContext } from '../../App'
 import "./Account.css";
 
-function Account() {
+function Login({handleUserNameChange, handlePasswordChange, userCreds}) {
     const sharedStates = useContext(TrackerContext);
-
-    const handleUserNameChange = e => {
-        let newCreds = {...sharedStates.userCreds};
-        newCreds.email = e.target.value;
-        sharedStates.setUserCreds(newCreds);
-    };
-
-    const handlePasswordChange = e => {
-        let newCreds = {...sharedStates.userCreds};
-        newCreds.password = e.target.value;
-        sharedStates.setUserCreds(newCreds);
-    };
 
     const handleLogin = async (e) => {
         e.preventDefault();
-        const json = await authenticateUser(sharedStates.userCreds);
-        if(json.status === 200){
-            localStorage.setItem("token", json.token);
-            sharedStates.setToken(json.token)
-            console.log("User Authenticated");
-        } else{
-            sharedStates.setLoggedIn(false);
-            console.log("Error Authenticating User: ", json.error);
+        if(userCreds.email.length > 3) {
+            const json = await authenticateUser(userCreds);
+            if (json.status === 200) {
+                localStorage.setItem("token", json.token);
+                sharedStates.setToken(json.token)
+                console.log("User Authenticated");
+            } else {
+                sharedStates.setLoggedIn(false);
+                console.log("Error Authenticating User: ", json.error);
+            }
         }
     };
 
@@ -62,4 +52,4 @@ function Account() {
     );
 }
 
-export default Account;
+export default Login;
