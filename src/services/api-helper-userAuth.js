@@ -5,7 +5,10 @@ const api = axios.create({
 });
 
 export const checkToken = async () => {
-    const resp = await api.get('/checkToken');
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    console.log("Cookies: ", ca)
+    const resp = await api.get('/checkToken', {withCredentials: true});
     return resp.data;
 };
 
