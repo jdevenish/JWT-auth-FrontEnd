@@ -1,15 +1,16 @@
 import axios from 'axios'
 
+
 const api = axios.create({
     baseURL: 'https://mighty-tundra-18136.herokuapp.com/api/'
 });
 
-export const checkToken = async (token) => {
-    const resp = await api.get('/checkToken', {
+export const validToken = async (token) => {
+    const resp =  await api.get('/checkToken', {
         params: {
-            apiKey: token
+            token: token
         }});
-    return resp.data;
+    return resp.status
 };
 
 
@@ -34,35 +35,3 @@ export const logUserOut = async (user) => {
     return "Loging user out ..."
 };
 
-// export const withAuth = async(ComponentToProtect) => {
-//
-//     // return class extends Component {
-//     //   constructor() {
-//     //     super();
-//     //     this.state = {
-//     //       loading: true,
-//     //       redirect: false,
-//     //     };
-//     //   }
-//     //   componentDidMount() {
-//     //     fetch('/checkToken')
-//     //       .then(res => {
-//     //         if (res.status === 200) {
-//     //           this.setState({ loading: false });
-//     //         } else {
-//     //           const error = new Error(res.error);
-//     //           throw error;
-//     //         }
-//     //       })
-//     //       .catch(err => {
-//     //         console.error(err);
-//     //         this.setState({ loading: false, redirect: true });
-//     //       });
-//     //   }
-//
-//
-//     // const resp = await api.get('/checkToken');
-//     // if (resp.status === 200) {
-//     //     return <ComponentToProtect {...this.props} />;
-//     // }
-// }
