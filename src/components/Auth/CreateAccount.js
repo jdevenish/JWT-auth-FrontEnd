@@ -27,7 +27,7 @@ function Account() {
     const handleCreateAccount = async (e) => {
         e.preventDefault();
         if(userCreds.email.length > 3){
-            const json = await registerNewUser(userCreds);
+            const json = await registerNewUser(sharedStates.userCreds);
             if(json.status === 200){
                 localStorage.setItem("token", json.token);
                 sharedStates.setToken(json.token)

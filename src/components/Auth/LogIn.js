@@ -21,7 +21,7 @@ function Account() {
 
     const handleLogin = async (e) => {
         e.preventDefault();
-        const json = await authenticateUser(userCreds);
+        const json = await authenticateUser(sharedStates.userCreds);
         if(json.status === 200){
             localStorage.setItem("token", json.token);
             sharedStates.setToken(json.token)
