@@ -10,7 +10,11 @@ export const checkToken = async (token) => {
     console.log("Cookies: ", ca)
     const resp = await api.get('/checkToken', {
         withCredentials: true,
-        Cookie: `token=${token}`});
+        headers: {
+            Cookie: `token=${token}`
+        }});
+
+
     return resp.data;
 };
 
