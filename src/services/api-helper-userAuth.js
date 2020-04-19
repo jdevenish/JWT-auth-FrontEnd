@@ -5,7 +5,6 @@ const api = axios.create({
 });
 
 export const checkToken = async (token) => {
-    console.log("apiKey ", token)
     const resp = await api.get('/checkToken', {
         params: {
             apiKey: token
