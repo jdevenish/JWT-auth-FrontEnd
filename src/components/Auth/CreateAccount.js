@@ -6,27 +6,23 @@ import "./Account.css";
 
 
 function Account() {
-    const [userCreds, setUserCreds] = useState({
-        email: "",
-        password: ""
-    });
     const sharedStates = useContext(TrackerContext);
 
     const handleUserNameChange = e => {
-        let newCreds = {...userCreds};
+        let newCreds = {...sharedStates.userCreds};
         newCreds.email = e.target.value;
-        setUserCreds(newCreds);
+        sharedStates.setUserCreds(newCreds);
     };
 
     const handlePasswordChange = e => {
-        let newCreds = {...userCreds};
+        let newCreds = {...sharedStates.userCreds};
         newCreds.password = e.target.value;
-        setUserCreds(newCreds);
+        sharedStates.setUserCreds(newCreds);
     };
 
     const handleCreateAccount = async (e) => {
         e.preventDefault();
-        if(userCreds.email.length > 3){
+        if(sharedStates.userCreds.email.length > 3){
             const json = await registerNewUser(sharedStates.userCreds);
             if(json.status === 200){
                 localStorage.setItem("token", json.token);

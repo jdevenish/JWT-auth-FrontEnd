@@ -33,7 +33,7 @@ function Header({loggedIn, setLoggedIn, setCreateModal}) {
                     <Link className="nav-link" to="/networking-contacts">Networking Contacts</Link>
                     <Link className="nav-link" to="/resources">Resources</Link>
                 </Nav>
-               {loggedIn ? logIn : logOut}
+               {loggedIn ? logOut : logIn}
             </Navbar>
         </div>
     );
