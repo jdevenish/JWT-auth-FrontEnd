@@ -41,6 +41,7 @@ function Account() {
         const json = await authenticateUser(user);
         if(json.status === 200){
             sharedStates.setLoggedIn(true)
+            sharedStates.setToken(json.token)
         } else{
             sharedStates.setLoggedIn(false)
         }

@@ -1,12 +1,13 @@
-import React, { useEffect } from 'react';
+import React, {useContext, useEffect} from 'react';
 import { checkToken } from '../services/api-helper-userAuth'
-
+import { TrackerContext } from '../App'
 
 function JobSearchMaterials() {
+    const sharedStates = useContext(TrackerContext);
 
     useEffect(() => {
         const makeSectorApiCall = async () => {
-            const json = await checkToken();
+            const json = await checkToken(sharedStates.token);
             console.log("JobSearchMaterials: checkToken results = ", json)
         };
         makeSectorApiCall()

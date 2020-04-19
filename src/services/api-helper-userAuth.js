@@ -4,11 +4,13 @@ const api = axios.create({
     baseURL: 'https://mighty-tundra-18136.herokuapp.com/api/'
 });
 
-export const checkToken = async () => {
+export const checkToken = async (token) => {
     let decodedCookie = decodeURIComponent(document.cookie);
     let ca = decodedCookie.split(';');
     console.log("Cookies: ", ca)
-    const resp = await api.get('/checkToken', {withCredentials: true});
+    const resp = await api.get('/checkToken', {
+        withCredentials: true,
+        Cookie: `token=${token}`});
     return resp.data;
 };
 

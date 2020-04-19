@@ -7,6 +7,7 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false)
   const [resources, setResources] = useState({});
   const [userProfile, setUserProfile] = useState({})
+  const [token, setToken] =  useState("")
 
   return (
       <div className="App">
@@ -17,7 +18,9 @@ function App() {
             userProfile,
             setUserProfile,
             loggedIn,
-            setLoggedIn
+            setLoggedIn,
+            token,
+            setToken
           } }>
           <Main />
         </TrackerContext.Provider>
