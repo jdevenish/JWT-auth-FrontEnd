@@ -18,10 +18,7 @@ export const registerNewUser = async (user) => {
 
 export const authenticateUser = async (user) => {
     const resp = await api.post('/authenticate', user, {
-        withCredentials: true,
-        headers: {
-            "Access-Control-Allow-Origin": "https://heuristic-carson-cc6c87.netlify.app/"
-        }
+        withCredentials: true
         });
     console.log("authenticate user response: ", resp)
     return resp.data
