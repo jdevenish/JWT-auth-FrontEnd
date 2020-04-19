@@ -8,7 +8,21 @@ import {
 
 
 
-function Header({loggedIn}) {
+function Header({loggedIn, setLoggedIn, setCreateModal}) {
+
+    function logUserOut() {
+        localStorage.removeItem("token")
+        setLoggedIn(false)
+    }
+
+    function loadSignIn() {
+        setCreateModal(false)
+    }
+
+    const logIn = <NavbarText onClick={loadSignIn}>Log In</NavbarText>;
+
+    const logOut = <NavbarText onClick={logUserOut} >Log Out</NavbarText>;
+
     return (
         <div className="header">
             <Navbar color="light" light expand="md">
@@ -19,7 +33,7 @@ function Header({loggedIn}) {
                     <Link className="nav-link" to="/networking-contacts">Networking Contacts</Link>
                     <Link className="nav-link" to="/resources">Resources</Link>
                 </Nav>
-                <NavbarText>{loggedIn ? "Log Out" : "Log In"}</NavbarText>
+               {loggedIn ? logIn : logOut}
             </Navbar>
         </div>
     );

@@ -6,9 +6,15 @@ import { validToken } from './services/api-helper-userAuth'
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
+  const [createModal, setCreateModal] = useState(true)
   const [resources, setResources] = useState({});
   const [userProfile, setUserProfile] = useState({});
   const [token, setToken] =  useState("");
+  const [userCreds, setUserCreds] = useState({
+        email: "",
+        password: ""
+  });
+
 
   useEffect(() => {
       const localToken = localStorage.getItem("token");
@@ -26,7 +32,7 @@ function App() {
 
   return (
       <div className="App">
-        <Header loggedIn={loggedIn}/>
+        <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} setCreateModal={setCreateModal}/>
         <TrackerContext.Provider value={{
             resources,
             setResources,
@@ -35,7 +41,11 @@ function App() {
             loggedIn,
             setLoggedIn,
             token,
-            setToken
+            setToken,
+            createModal,
+            setCreateModal,
+            userCreds,
+            setUserCreds
           } }>
           <Main />
         </TrackerContext.Provider>
