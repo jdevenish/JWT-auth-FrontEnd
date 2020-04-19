@@ -9,7 +9,7 @@ export const checkToken = async (token) => {
     let ca = decodedCookie.split(';');
     console.log("Cookies: ", ca)
     const resp = await api.get('/checkToken', {
-        withCredentials: true,
+        // withCredentials: true,
         headers: {
             Token: token
         }});
