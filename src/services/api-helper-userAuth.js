@@ -11,7 +11,7 @@ export const checkToken = async (token) => {
     const resp = await api.get('/checkToken', {
         withCredentials: true,
         headers: {
-            Cookie: `token=${token}`
+            Token: `token=${token}`
         }});
 
 
