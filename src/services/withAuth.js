@@ -5,7 +5,7 @@ import axios from 'axios'
 
 
 
-function WithAuth(ComponentToProtect) {
+function WithAuth(ComponentToProtect, token) {
     console.log("checkToken status:")
     const [loading, setLoading] = useState(true)
     const [valid, setValid] = useState(false)
@@ -17,7 +17,7 @@ function WithAuth(ComponentToProtect) {
                 baseURL: 'https://mighty-tundra-18136.herokuapp.com/api'
             });
 
-            const resp = await api.get('/checkToken');
+            const resp = await api.get('/checkToken', {params:{token: token}});
             console.log("checkToken status = ", resp.status)
             if (resp.status === 200) {
                 console.log("WithAuth: token valid")
