@@ -1,8 +1,7 @@
 import React, { useState, useContext } from 'react';
-// import { Link } from 'react-router-dom';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
-import { checkToken, registerNewUser, authenticateUser, logUserOut } from '../services/api-helper-userAuth'
-import { TrackerContext } from '../App'
+import { registerNewUser } from '../../services/api-helper-userAuth'
+import { TrackerContext } from '../../App'
 import "./Account.css";
 
 
