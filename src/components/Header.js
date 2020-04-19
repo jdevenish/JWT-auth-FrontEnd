@@ -2,14 +2,13 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
     Navbar,
-    NavbarBrand,
     Nav,
-    NavLink
+    NavbarText
 } from 'reactstrap';
 
 
 
-function Header() {
+function Header({loggedIn}) {
     return (
         <div className="header">
             <Navbar color="light" light expand="md">
@@ -20,6 +19,7 @@ function Header() {
                     <Link className="nav-link" to="/networking-contacts">Networking Contacts</Link>
                     <Link className="nav-link" to="/resources">Resources</Link>
                 </Nav>
+                <NavbarText>{loggedIn ? "Log Out" : "Log In"}</NavbarText>
             </Navbar>
         </div>
     );

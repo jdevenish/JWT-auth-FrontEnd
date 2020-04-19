@@ -15,7 +15,6 @@ export const checkToken = async (token) => {
 
 export const registerNewUser = async (user) => {
     const resp  = await api.post(`/register`, user);
-    console.log("register new user resp: ", resp)
     return resp.data
 };
 

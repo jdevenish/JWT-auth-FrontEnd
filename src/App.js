@@ -11,7 +11,7 @@ function App() {
 
   return (
       <div className="App">
-        <Header />
+        <Header loggedIn={loggedIn}/>
         <TrackerContext.Provider value={{
             resources,
             setResources,

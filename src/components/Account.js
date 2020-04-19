@@ -6,47 +6,47 @@ import { checkToken, registerNewUser, authenticateUser, logUserOut } from '../se
 import { TrackerContext } from '../App'
 
 function Account() {
-    const [userNameInput, setUserNameInput] = useState("");
-    const [passwordInput, setPasswordInput] = useState("")
+    const [userCreds, setUserCreds] = useState({
+        email: "",
+        password: ""
+    });
     const sharedStates = useContext(TrackerContext);
 
     const handleUserNameChange = e => {
-        const userInput = e.target.value
-        setUserNameInput(userInput)
-        console.log(userNameInput)
-    }
+        let newCreds = {...userCreds};
+        newCreds.email = e.target.value;
+        setUserCreds(newCreds);
+    };
 
     const handlePasswordChange = e => {
-        const userInput = e.target.value
-        setPasswordInput(userInput)
-        console.log(passwordInput)
-    }
+        let newCreds = {...userCreds};
+        newCreds.password = e.target.value;
+        setUserCreds(newCreds);
+    };
 
     const handleCreateAccount = async (e) => {
-        e.preventDefault()
-        const user = {
-            "email": userNameInput,
-            "password": passwordInput
+        e.preventDefault();
+        const json = await registerNewUser(userCreds);
+        if(json.status === 200){
+            console.log("User successfully created")
+        } else{
+            console.log("Error creating account: ", json.error)
         }
-        const json = await registerNewUser(user);
-        console.log("register new user = ", json)
-    }
+    };
 
     const handleLogin = async (e) => {
-        e.preventDefault()
-        const user = {
-            "email": userNameInput,
-            "password": passwordInput
-        }
-        const json = await authenticateUser(user);
+        e.preventDefault();
+        const json = await authenticateUser(userCreds);
         if(json.status === 200){
-            sharedStates.setLoggedIn(true)
+            localStorage.setItem("token", json.token);
+            sharedStates.setLoggedIn(true);
             sharedStates.setToken(json.token)
+            console.log("User Authenticated");
         } else{
-            sharedStates.setLoggedIn(false)
+            sharedStates.setLoggedIn(false);
+            console.log("Error Authenticating User: ", json.error);
         }
-        console.log("Authenticating new user = ", json)
-    }
+    };
 
     return (
         <>
