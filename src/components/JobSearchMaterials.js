@@ -6,7 +6,7 @@ function JobSearchMaterials() {
     const sharedStates = useContext(TrackerContext);
 
     return (
-        <div>
+        <div className="jsmContainer">
             <InputGroup>
                 <InputGroupAddon addonType="prepend">
                     <InputGroupText>Resume</InputGroupText>
