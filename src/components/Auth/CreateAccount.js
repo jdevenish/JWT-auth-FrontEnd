@@ -11,6 +11,7 @@ function CreateAccount({handleUserNameChange, handlePasswordChange, userCreds}) 
 
     const handleCreateAccount = async (e) => {
         e.preventDefault();
+        console.log("Creating Account: ", userCreds)
         if(userCreds.email.length > 3){
             const json = await registerNewUser(userCreds);
             if(json.status === 200){
