@@ -68,7 +68,7 @@ function JobSearchMaterials() {
                     <InputGroupAddon addonType="prepend">
                         <InputGroupText>Resume</InputGroupText>
                     </InputGroupAddon>
-                    <Input placeholder={sharedStates.userProfile.resume} onChange={handleResumeChange}/>
+                    <Input type="url" placeholder={sharedStates.userProfile.resume} onChange={handleResumeChange}/>
                 </FormGroup>
             </Form>
             <br />
