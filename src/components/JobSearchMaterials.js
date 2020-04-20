@@ -1,5 +1,5 @@
 import React, {useContext, useEffect} from 'react';
-import { InputGroup, InputGroupText, InputGroupAddon, Input } from 'reactstrap';
+import { InputGroup, InputGroupText, InputGroupAddon, Input, FormGroup } from 'reactstrap';
 import { TrackerContext } from '../App'
 
 function JobSearchMaterials() {
@@ -56,12 +56,14 @@ function JobSearchMaterials() {
 
     return (
         <div className="jsmContainer">
-            <InputGroup >
-                <InputGroupAddon addonType="prepend">
-                    <InputGroupText>Resume</InputGroupText>
-                </InputGroupAddon>
-                <Input placeholder={sharedStates.userProfile.resume} onSubmit={handleResumeChange}/>
-            </InputGroup>
+            <FormGroup onSubmit={handleResumeChange}>
+                <InputGroup>
+                    <InputGroupAddon addonType="prepend">
+                        <InputGroupText>Resume</InputGroupText>
+                    </InputGroupAddon>
+                    <Input placeholder={sharedStates.userProfile.resume} />
+                </InputGroup>
+            </FormGroup>
             <br />
             <InputGroup>
                 <InputGroupAddon addonType="prepend">
