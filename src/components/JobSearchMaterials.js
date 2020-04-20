@@ -11,7 +11,7 @@ function JobSearchMaterials() {
         // let newUserProfile = {...sharedStates.userProfile};
         // newUserProfile.jobSearchMaterials.resume = e.target.value;
         // setUserCreds(newCreds);
-        console.log("resume value")
+        console.log("resume value  ", resumeURL)
     };
 
     const handleResumeSubmit = e => {
