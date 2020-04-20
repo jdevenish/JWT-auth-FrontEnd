@@ -5,9 +5,58 @@ import { TrackerContext } from '../App'
 function JobSearchMaterials() {
     const sharedStates = useContext(TrackerContext);
 
+    const handleResumeChange = e => {
+        // let newUserProfile = {...sharedStates.userProfile};
+        // newUserProfile.jobSearchMaterials.resume = e.target.value;
+        // setUserCreds(newCreds);
+        console.log("resume value", e.target.value)
+    };
+
+    const handleBrandStatementChange = e => {
+        let newCreds = {...userCreds};
+        newCreds.email = e.target.value;
+        setUserCreds(newCreds);
+    };
+
+    const handleCodeSandBoxChange = e => {
+        let newCreds = {...userCreds};
+        newCreds.email = e.target.value;
+        setUserCreds(newCreds);
+    };
+
+    const handleCoverLetterChange = e => {
+        let newCreds = {...userCreds};
+        newCreds.email = e.target.value;
+        setUserCreds(newCreds);
+    };
+
+    const handleGitHubChange = e => {
+        let newCreds = {...userCreds};
+        newCreds.email = e.target.value;
+        setUserCreds(newCreds);
+    };
+
+    const handleLinkedInChange = e => {
+        let newCreds = {...userCreds};
+        newCreds.email = e.target.value;
+        setUserCreds(newCreds);
+    };
+
+    const handlePortfolioSiteChange = e => {
+        let newCreds = {...userCreds};
+        newCreds.email = e.target.value;
+        setUserCreds(newCreds);
+    };
+
+    const handleReplChange = e => {
+        let newCreds = {...userCreds};
+        newCreds.email = e.target.value;
+        setUserCreds(newCreds);
+    };
+
     return (
         <div className="jsmContainer">
-            <InputGroup>
+            <InputGroup onChange={handleResumeChange}>
                 <InputGroupAddon addonType="prepend">
                     <InputGroupText>Resume</InputGroupText>
                 </InputGroupAddon>
