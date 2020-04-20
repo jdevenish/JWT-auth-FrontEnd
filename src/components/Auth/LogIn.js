@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Redirect } from 'react-router-dom';
 import { Button, Form, FormGroup, Input } from 'reactstrap';
 import { authenticateUser } from '../../services/api-helper-userAuth'
 import { TrackerContext } from '../../App'
@@ -15,6 +16,7 @@ function Login({handleUserNameChange, handlePasswordChange, userCreds}) {
                 localStorage.setItem("token", json.token);
                 sharedStates.setToken(json.token)
                 console.log("User Authenticated");
+                return <Redirect to="/resources" />
             } else {
                 sharedStates.setLoggedIn(false);
                 console.log("Error Authenticating User: ", json.error);

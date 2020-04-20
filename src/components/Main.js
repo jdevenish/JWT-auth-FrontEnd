@@ -14,7 +14,7 @@ function Main() {
 
     return (
         <Switch>
-            <Route exact path="/" component={sharedStates.loggedIn ? Resources : Home} />
+            <Route exact path="/" component={Home} />
             <Route path="/target-companies-and-applications" component={sharedStates.loggedIn ? TargetCompanies : AccessDenied} />
             <Route path="/job-search-materials" component={sharedStates.loggedIn ? JobSearchMaterials : AccessDenied} />
             <Route path="/networking-contacts" component={sharedStates.loggedIn ? NetworkingContacts : AccessDenied} />

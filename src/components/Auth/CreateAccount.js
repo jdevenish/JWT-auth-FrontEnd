@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Redirect } from 'react-router-dom';
+import { Button, Form, FormGroup, Input } from 'reactstrap';
 import { registerNewUser } from '../../services/api-helper-userAuth'
 import { TrackerContext } from '../../App'
 import "./Account.css";
@@ -16,6 +17,7 @@ function CreateAccount({handleUserNameChange, handlePasswordChange, userCreds}) 
                 localStorage.setItem("token", json.token);
                 sharedStates.setToken(json.token);
                 console.log("User successfully created")
+                return <Redirect to="/resources" />
             } else{
                 sharedStates.setLoggedIn(false);
                 console.log("Error creating account: ", json.error)
