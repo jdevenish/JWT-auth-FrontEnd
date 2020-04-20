@@ -12,47 +12,47 @@ function JobSearchMaterials() {
         console.log("resume value", e.target.value)
     };
 
-    const handleBrandStatementChange = e => {
-        let newCreds = {...userCreds};
-        newCreds.email = e.target.value;
-        setUserCreds(newCreds);
-    };
-
-    const handleCodeSandBoxChange = e => {
-        let newCreds = {...userCreds};
-        newCreds.email = e.target.value;
-        setUserCreds(newCreds);
-    };
-
-    const handleCoverLetterChange = e => {
-        let newCreds = {...userCreds};
-        newCreds.email = e.target.value;
-        setUserCreds(newCreds);
-    };
-
-    const handleGitHubChange = e => {
-        let newCreds = {...userCreds};
-        newCreds.email = e.target.value;
-        setUserCreds(newCreds);
-    };
-
-    const handleLinkedInChange = e => {
-        let newCreds = {...userCreds};
-        newCreds.email = e.target.value;
-        setUserCreds(newCreds);
-    };
-
-    const handlePortfolioSiteChange = e => {
-        let newCreds = {...userCreds};
-        newCreds.email = e.target.value;
-        setUserCreds(newCreds);
-    };
-
-    const handleReplChange = e => {
-        let newCreds = {...userCreds};
-        newCreds.email = e.target.value;
-        setUserCreds(newCreds);
-    };
+    // const handleBrandStatementChange = e => {
+    //     let newCreds = {...userCreds};
+    //     newCreds.email = e.target.value;
+    //     setUserCreds(newCreds);
+    // };
+    //
+    // const handleCodeSandBoxChange = e => {
+    //     let newCreds = {...userCreds};
+    //     newCreds.email = e.target.value;
+    //     setUserCreds(newCreds);
+    // };
+    //
+    // const handleCoverLetterChange = e => {
+    //     let newCreds = {...userCreds};
+    //     newCreds.email = e.target.value;
+    //     setUserCreds(newCreds);
+    // };
+    //
+    // const handleGitHubChange = e => {
+    //     let newCreds = {...userCreds};
+    //     newCreds.email = e.target.value;
+    //     setUserCreds(newCreds);
+    // };
+    //
+    // const handleLinkedInChange = e => {
+    //     let newCreds = {...userCreds};
+    //     newCreds.email = e.target.value;
+    //     setUserCreds(newCreds);
+    // };
+    //
+    // const handlePortfolioSiteChange = e => {
+    //     let newCreds = {...userCreds};
+    //     newCreds.email = e.target.value;
+    //     setUserCreds(newCreds);
+    // };
+    //
+    // const handleReplChange = e => {
+    //     let newCreds = {...userCreds};
+    //     newCreds.email = e.target.value;
+    //     setUserCreds(newCreds);
+    // };
 
     return (
         <div className="jsmContainer">
