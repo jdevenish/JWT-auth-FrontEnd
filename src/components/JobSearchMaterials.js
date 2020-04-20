@@ -56,14 +56,14 @@ function JobSearchMaterials() {
 
     return (
         <div className="jsmContainer">
-            <FormGroup onSubmit={handleResumeChange}>
+            <Form onSubmit={handleResumeChange}>
                 <InputGroup>
                     <InputGroupAddon addonType="prepend">
                         <InputGroupText>Resume</InputGroupText>
                     </InputGroupAddon>
                     <Input placeholder={sharedStates.userProfile.resume} />
                 </InputGroup>
-            </FormGroup>
+            </Form>
             <br />
             <InputGroup>
                 <InputGroupAddon addonType="prepend">
