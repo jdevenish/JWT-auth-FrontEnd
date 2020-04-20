@@ -15,8 +15,9 @@ function CreateAccount({handleUserNameChange, handlePasswordChange, userCreds}) 
             const json = await registerNewUser(userCreds);
             if(json.status === 200){
                 localStorage.setItem("token", json.userProfile.userId);
-                sharedStates.setToken(json.token);
-                console.log("User successfully created")
+                sharedStates.setToken(json.userProfile.userId);
+                sharedStates.setUserProfile(json.userProfile);
+                console.log("User successfully created");
                 return <Redirect to="/resources" />
             } else{
                 sharedStates.setLoggedIn(false);

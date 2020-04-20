@@ -13,8 +13,9 @@ function Login({handleUserNameChange, handlePasswordChange, userCreds}) {
         if (userCreds.email.length > 3) {
             const json = await authenticateUser(userCreds);
             if (json.status === 200) {
-                localStorage.setItem("token", json.token);
-                sharedStates.setToken(json.token);
+                localStorage.setItem("token", json.userProfile.userId);
+                sharedStates.setToken(json.userProfile.userId);
+                sharedStates.setUserProfile(json.userProfile);
                 console.log("User Authenticated");
             } else {
                 sharedStates.setLoggedIn(false);
