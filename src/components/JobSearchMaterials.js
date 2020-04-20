@@ -4,13 +4,20 @@ import { TrackerContext } from '../App'
 
 function JobSearchMaterials() {
     const sharedStates = useContext(TrackerContext);
+    let resumeURL = "";
 
     const handleResumeChange = e => {
+        resumeURL = e.target.value;
         // let newUserProfile = {...sharedStates.userProfile};
         // newUserProfile.jobSearchMaterials.resume = e.target.value;
         // setUserCreds(newCreds);
-        console.log("resume value", e.target.value)
+        console.log("resume value")
     };
+
+    const handleResumeSubmit = e => {
+        e.preventDefault();
+        console.log("Saving :", resumeURL)
+    }
 
     // const handleBrandStatementChange = e => {
     //     let newCreds = {...userCreds};
@@ -56,12 +63,12 @@ function JobSearchMaterials() {
 
     return (
         <div className="jsmContainer">
-            <Form onSubmit={handleResumeChange}>
+            <Form onSubmit={handleResumeSubmit}>
                 <InputGroup>
                     <InputGroupAddon addonType="prepend">
                         <InputGroupText>Resume</InputGroupText>
                     </InputGroupAddon>
-                    <Input placeholder={sharedStates.userProfile.resume} />
+                    <Input placeholder={sharedStates.userProfile.resume} onChange={handleResumeChange}/>
                 </InputGroup>
             </Form>
             <br />
