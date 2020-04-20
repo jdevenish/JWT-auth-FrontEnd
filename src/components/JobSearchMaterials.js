@@ -5,8 +5,55 @@ function JobSearchMaterials() {
     const sharedStates = useContext(TrackerContext);
 
     return (
-        <div >
-            <h1>{sharedStates.loggedIn ? "Job Search Materials" : "Access Denied. Please login or create an account"}</h1>
+        <div>
+            <InputGroup>
+                <InputGroupAddon addonType="prepend">
+                    <InputGroupText>Resume</InputGroupText>
+                </InputGroupAddon>
+                <Input />
+            </InputGroup>
+            <br />
+            <InputGroup>
+                <InputGroupAddon addonType="prepend">
+                    <InputGroupText>Cover Letter</InputGroupText>
+                </InputGroupAddon>
+                <Input />
+            </InputGroup>
+            <br />
+            <InputGroup>
+                <InputGroupAddon addonType="prepend">
+                    <InputGroupText>Mission Statement</InputGroupText>
+                </InputGroupAddon>
+                <Input />
+            </InputGroup>
+            <br />
+            <InputGroup>
+                <InputGroupAddon addonType="prepend">
+                    <InputGroupText>LinkedIn URL</InputGroupText>
+                </InputGroupAddon>
+                <Input />
+            </InputGroup>
+            <br />
+            <InputGroup>
+                <InputGroupAddon addonType="prepend">
+                    <InputGroupText>GitHub URL</InputGroupText>
+                </InputGroupAddon>
+                <Input />
+            </InputGroup>
+            <br />
+            <InputGroup>
+                <InputGroupAddon addonType="prepend">
+                    <InputGroupText>repl.it URL</InputGroupText>
+                </InputGroupAddon>
+                <Input />
+            </InputGroup>
+            <br />
+            <InputGroup>
+                <InputGroupAddon addonType="prepend">
+                    <InputGroupText>Codesandbos URL</InputGroupText>
+                </InputGroupAddon>
+                <Input />
+            </InputGroup>
         </div>
     );
 }
