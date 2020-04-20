@@ -1,4 +1,5 @@
 import React, {useContext, useEffect} from 'react';
+import { InputGroup, InputGroupText, InputGroupAddon, Input } from 'reactstrap';
 import { TrackerContext } from '../App'
 
 function JobSearchMaterials() {
