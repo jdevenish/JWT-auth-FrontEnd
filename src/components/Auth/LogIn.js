@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Redirect } from 'react-router-dom';
+
 import { Button, Form, FormGroup, Input } from 'reactstrap';
 import { authenticateUser } from '../../services/api-helper-userAuth'
 import { TrackerContext } from '../../App'
@@ -10,13 +10,12 @@ function Login({handleUserNameChange, handlePasswordChange, userCreds}) {
 
     const handleLogin = async (e) => {
         e.preventDefault();
-        if(userCreds.email.length > 3) {
+        if (userCreds.email.length > 3) {
             const json = await authenticateUser(userCreds);
             if (json.status === 200) {
                 localStorage.setItem("token", json.token);
-                sharedStates.setToken(json.token)
+                sharedStates.setToken(json.token);
                 console.log("User Authenticated");
-                return <Redirect to="/resources" />
             } else {
                 sharedStates.setLoggedIn(false);
                 console.log("Error Authenticating User: ", json.error);
@@ -25,7 +24,7 @@ function Login({handleUserNameChange, handlePasswordChange, userCreds}) {
     };
 
     return (
-        <div className="loginContainer">
+        <div className={sharedStates.loggedIn ? "hide" : "loginContainer"}>
             <Form onSubmit={handleLogin}>
                 <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
                     <Input

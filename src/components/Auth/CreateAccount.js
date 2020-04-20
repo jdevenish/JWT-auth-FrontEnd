@@ -26,7 +26,7 @@ function CreateAccount({handleUserNameChange, handlePasswordChange, userCreds}) 
     };
 
     return (
-        <div className="loginContainer">
+        <div className={sharedStates.loggedIn ? "hide" : "loginContainer"}>
             <Form onSubmit={handleCreateAccount}>
                 <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
                     <Input
