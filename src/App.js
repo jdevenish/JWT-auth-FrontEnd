@@ -6,15 +6,24 @@ import { validToken } from './services/api-helper-userAuth'
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
-  const [createModal, setCreateModal] = useState(true)
-  const [resources, setResources] = useState({});
-  const [userProfile, setUserProfile] = useState({});
+  const [createModal, setCreateModal] = useState(true);
   const [token, setToken] =  useState("");
-  const [userCreds, setUserCreds] = useState({
-        email: "",
-        password: ""
-  });
-
+  const [resources, setResources] = useState({});
+  // const [userProfile, setUserProfile] = useState({
+  //     userId: "",
+  //     targetCompanies: [],
+  //     networkingContacts: [],
+  //     jobSearchMaterials: {
+  //         brandStatement: "",
+  //         coverLetter: "",
+  //         resume: "",
+  //         gitHub: "",
+  //         linkedIn: "",
+  //         repl: "",
+  //         codeSandBox: "",
+  //         profileSite: ""
+  //     }
+  // });
 
   useEffect(() => {
       const localToken = localStorage.getItem("token");
@@ -43,9 +52,7 @@ function App() {
             token,
             setToken,
             createModal,
-            setCreateModal,
-            userCreds,
-            setUserCreds
+            setCreateModal
           } }>
           <Main />
         </TrackerContext.Provider>

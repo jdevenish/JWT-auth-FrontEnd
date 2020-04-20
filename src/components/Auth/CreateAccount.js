@@ -14,7 +14,7 @@ function CreateAccount({handleUserNameChange, handlePasswordChange, userCreds}) 
         if(userCreds.email.length > 3){
             const json = await registerNewUser(userCreds);
             if(json.status === 200){
-                localStorage.setItem("token", json.token);
+                localStorage.setItem("token", json.userProfile.userId);
                 sharedStates.setToken(json.token);
                 console.log("User successfully created")
                 return <Redirect to="/resources" />
