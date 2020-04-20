@@ -1,5 +1,5 @@
 import React, {useContext, useEffect} from 'react';
-import { InputGroup, InputGroupText, InputGroupAddon, Input, Form } from 'reactstrap';
+import { InputGroup, InputGroupText, InputGroupAddon, Input, Form, FormGroup } from 'reactstrap';
 import { TrackerContext } from '../App'
 
 function JobSearchMaterials() {
@@ -17,7 +17,7 @@ function JobSearchMaterials() {
     const handleResumeSubmit = e => {
         // e.preventDefault();
         console.log("Saving :", resumeURL)
-    }
+    };
 
     // const handleBrandStatementChange = e => {
     //     let newCreds = {...userCreds};
@@ -64,12 +64,12 @@ function JobSearchMaterials() {
     return (
         <div className="jsmContainer">
             <Form onSubmit={handleResumeSubmit}>
-                <InputGroup>
+                <FormGroup>
                     <InputGroupAddon addonType="prepend">
                         <InputGroupText>Resume</InputGroupText>
                     </InputGroupAddon>
                     <Input placeholder={sharedStates.userProfile.resume} onChange={handleResumeChange}/>
-                </InputGroup>
+                </FormGroup>
             </Form>
             <br />
             <InputGroup>
